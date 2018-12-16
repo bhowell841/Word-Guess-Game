@@ -8,35 +8,39 @@
 <body>
     <script>
     
-    // Array of bands
-    var bands = ["Devo", "KISS", "Queen", "Pixies", "BonJovi", "ACDC", "TalkingHeads", "Journey", "HueyLewis", "Bananarama"]
-    
+    // Array of G.I. Joe
+    var joes = ["Duke", "Roadblock", "SnakeEyes", "StormShadow", "CobraCommander", "Destro", "LadyJaye", "SnowJob", "Scarlett", "RipCord", "Shipwreck", "Footloose", "Shockwave", "Firefly", "Flint", "DrMindbender",]
+    var counter = 10
     // Create a random number between 0 and 9 
     var min=0; 
-    var max=10;
+    var max=16;
     var random = Math.floor(Math.random() * (+max - +min));
+    console.log(random);
     
     // Use random number to choose the band
-    console.log(bands[random]);
+    console.log(joes[random]);
     
     // Set the band to a variable and make lowercase
-    var word = bands[random].toLowerCase();
+    var word = joes[random].toLowerCase();
     console.log(word);
 
     // Print to the document the underscores
     for (i=0; i<word.length; i++) {
         document.write("_ "); 
     }
-
+ 
     // Get a guess from the user 10 times
-    for (i=0; i<10; i++){
-        var letter = prompt("Guess a letter.").toLowerCase();
-        document.write(letter);
-            for(l=0; l<word.length; l++){
-                if(letter === word[l])
-                console.log("yes")
-        }  
-    }
+    // for (i=0; i<10; i++){
+        // var letter = prompt("Guess a letter.").toLowerCase();
+        
+        // document.write("Guesses left " + counter);
+        // document.write(letter + " ");
+            // for(l=0; l<word.length; l++){
+                // if(letter === word[l])
+                // console.log("yes")
+        // }  
+        // counter = counter-1;
+    // }
 
     
     
