@@ -2,50 +2,66 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Hangman</title>
+    <title>G.I. Joe Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
   </head>
 
 <body>
-    <script>
     
-    // Array of G.I. Joe
-    var joes = ["Duke", "Roadblock", "SnakeEyes", "StormShadow", "CobraCommander", "Destro", "LadyJaye", "SnowJob", "Scarlett", "RipCord", "Shipwreck", "Footloose", "Shockwave", "Firefly", "Flint", "DrMindbender",]
-    var counter = 10
-    // Create a random number between 0 and 9 
-    var min=0; 
-    var max=16;
-    var random = Math.floor(Math.random() * (+max - +min));
-    console.log(random);
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                    <img src="assets/images/joes-jumbo.jpg">
+                <h1 class="display-4">G.I Joe Hangman</h1>
+                <p class="lead">Guess a letter to begin.</p>
+            </div>
+        </div>
     
-    // Use random number to choose the band
-    console.log(joes[random]);
-    
-    // Set the band to a variable and make lowercase
-    var word = joes[random].toLowerCase();
-    console.log(word);
 
-    // Print to the document the underscores
-    for (i=0; i<word.length; i++) {
-        document.write("_ "); 
-    }
- 
-    // Get a guess from the user 10 times
-    // for (i=0; i<10; i++){
-        // var letter = prompt("Guess a letter.").toLowerCase();
-        
-        // document.write("Guesses left " + counter);
-        // document.write(letter + " ");
-            // for(l=0; l<word.length; l++){
-                // if(letter === word[l])
-                // console.log("yes")
-        // }  
-        // counter = counter-1;
-    // }
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="wins">Wins</h3>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-sm-12"><span id="wins">0</span></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 current-word">
+            <h3>Current Word</h3>
+        </div>
+    </div>
     
+    <div class="row">
+        <div class="col-sm-12"><span id="display"></span> </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 guesses"></div>
+            <h3>Number of Guesses Remaining</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12"><span id="guesses"></span></div>
+    </div>
     
-    
-    
-    </script>
+    <div class="row">
+        <div class="col-sm-12 letters">
+            <h3>Letters already guessed</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12"><span id="letters"></span></div>
+    </div>
+</div>
+
+    <script src="assets/javascript/game.js"></script>
 </body>
 </html>
