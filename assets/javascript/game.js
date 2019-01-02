@@ -1,17 +1,17 @@
 // Declaration of variables and arrays
 var joes = ["Duke", "Roadblock", "SnakeEyes", "StormShadow", "CobraCommander", "Destro", "LadyJaye", "SnowJob", "Scarlett", "RipCord", "Shipwreck", "Footloose", "Shockwave", "Firefly", "Flint", "DrMindbender",]
-var hidden = [];
-
-var counter = 10;
+var hidden = []; // array of underscores
+var lettersGuessed = [];
 var wins = 0;
 var losses = 0;
 var character;
+var characterArray
 var random;
+var chancesLeft = 8;
+var remainingletter;
 
-// Create event listener
-window.addEventListener ('')
 
-
+function getCharacter() {
 // Create a random number between 0 and 16 
 var min=0; 
 var max=16;
@@ -25,29 +25,58 @@ console.log(joes[random]);
 character = joes[random].toLowerCase();
 console.log(character);
 
-
+// Split character into array for comparison
+characterArray = character.split('')
+console.log(characterArray)
+}
 
 
 // hidden array with underscores equal to character name
+function createUnderscore() {
 for (i = 0; i < character.length; i++){
         hidden.push ("_ ");
-        document.write(hidden[i]);
-    }
-
-for (chance = 0; chance < 10; chance++){
-    // use a prompt to get a letter
-    var letter = prompt("Enter a letter: ")
-
-    // compare the letter to the character name and replace in array if it matches
-    for (l = 0; l < character.length; l++) {
-        if(letter === character.charAt(l)) 
-          hidden.splice(l, 1, letter);  
-    }
     
-    // reprint the array
-    for(i = 0; i < hidden.length; i++){
-         document.write(hidden[i]);
+    }console.log(hidden); 
+    $.each(hidden, function(index, value) {
+        $("#word").append(value);
+    });
+}
+
+getCharacter();
+createUnderscore();
+
+
+document.onkeypress = function(event){
+    guess = event.key.toLowerCase();
+        compare(guess);
+    
+function compare(item) {
+    if (lettersGuessed.includes(item) === true){
+        chancesLeft = chancesLeft+1;
+    }else {
+        lettersGuessed.push(item)
     }
-     
-     console.log(hidden);
+    console.log("The guess is: " + item);
+    console.log(lettersGuessed);
+    $("#number").text(lettersGuessed.join(', '));
+}    
+
+    
+// Compare the guess to the random letter, if match wins +1
+    if (guess.charAt(0) === character){
+        // winGame();
+        }
+
+// If no match subtract one from guess
+    else {
+        chancesLeft = chancesLeft-1;
+        console.log("guesses remaining: " + chancesLeft);   // This is showing it
+        //document.querySelector("#thoughts").innerHtml = guessLeft;  // This is not showing
+        document.getElementById("thoughts").innerHTML = chancesLeft;
     }
+
+// If the counter gets to 0 add a loss
+    if (chancesLeft === 0){
+        // loseGame();
+    }
+}
