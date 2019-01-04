@@ -14,7 +14,7 @@ var matches = 0;
 function getCharacter() {
 // Create a random number between 0 and 16 
 var min=0; 
-var max=16;
+var max=17;
 random = Math.floor(Math.random() * (+max - +min));
 console.log(random);
 
