@@ -5,10 +5,10 @@ var lettersGuessed = [];
 var wins = 0;
 var losses = 0;
 var character;
-var characterArray
+var characterArray = [];
 var random;
 var chancesLeft = 8;
-var remainingletter;
+var matches = 0;
 
 
 function getCharacter() {
@@ -33,6 +33,7 @@ console.log(characterArray)
 
 // hidden array with underscores equal to character name
 function createUnderscore() {
+    
 for (i = 0; i < character.length; i++){
         hidden.push ("_ ");
     
@@ -45,7 +46,7 @@ for (i = 0; i < character.length; i++){
 getCharacter();
 createUnderscore();
 
-
+// Get a letter, see if it has been guess, if not push it to lettersGuessed array
 document.onkeypress = function(event){
     guess = event.key.toLowerCase();
         compare(guess);
@@ -59,24 +60,61 @@ function compare(item) {
     console.log("The guess is: " + item);
     console.log(lettersGuessed);
     $("#number").text(lettersGuessed.join(', '));
-}    
-
-    
-// Compare the guess to the random letter, if match wins +1
-    if (guess.charAt(0) === character){
-        // winGame();
+   
+    // Compare the guess to the random letter, if match wins +1
+    for (i = 0; i<characterArray.length; i++){
+        if (guess.charAt(0) === characterArray[i]){
+            // hidden.splice(i, 1, guess); //remove commas
+            hidden[i] = guess;
+            matches = matches + 1;
+            console.log(hidden);
+            console.log("number of matches " + matches);
+            console.log("guesses left " + chancesLeft);
+            $("#word").text(hidden); 
         }
-
-// If no match subtract one from guess
-    else {
-        chancesLeft = chancesLeft-1;
-        console.log("guesses remaining: " + chancesLeft);   // This is showing it
-        //document.querySelector("#thoughts").innerHtml = guessLeft;  // This is not showing
-        document.getElementById("thoughts").innerHTML = chancesLeft;
     }
 
-// If the counter gets to 0 add a loss
-    if (chancesLeft === 0){
-        // loseGame();
+    if (characterArray.includes(guess) === false){
+        chancesLeft = chancesLeft - 1;
+        console.log("guesses left " + chancesLeft);
+        $("#thoughts").text(chancesLeft);
     }
+    if (chancesLeft < 1) {
+        lose();
+    }
+    if (matches == characterArray.length){
+        win();
+    }
+} // Closes compare function
+
+} // Closes OnKeyPress
+
+
+function win() {
+    wins = wins + 1;
+    $("#winCount").text(wins);
+    alert("You win, the Joe was " + character);
+    reset();
+};
+
+
+function lose() {
+    losses = losses + 1;
+    $("#losses").text(losses);
+    alert("You are out of guesses, the character was " + character);
+    reset();
+}
+
+function reset() {
+    // reset stuff here
+    hidden = []; 
+    lettersGuessed = [];
+    characterArray = [];
+    matches = 0;
+    chancesLeft = 8
+    $("#word").text("");
+    $("#number").text("");
+    $("#thoughts").text("8");
+    getCharacter();
+    createUnderscore();
 }
