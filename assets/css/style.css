@@ -22,18 +22,12 @@ body {
     background-color: #78866b
 }
 
-.stats {
-    border-top: solid black 2px;
-    border-left: solid black 2px;
-    border-bottom: solid black 2px;
-}
-
-.loss{
-    border-right: solid black 2px;
-}
-
 .character {
     margin: auto;
+}
+
+.guess {
+    padding-bottom: 20px;
 }
 
 .footer {

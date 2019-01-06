@@ -71,12 +71,13 @@ document.onkeypress = function(event){
                 // hidden.splice(i, 1, guess); //remove commas
                 // If yes, replace the underscore with the guessed letter, and increment matches for each match
                 hidden[i] = guess;
+                
+                $("#word").text(hidden.join('')); 
                 matches = matches + 1;
+                // Update the hidden array on the console
                 console.log(hidden);
                 console.log("number of matches " + matches);
                 console.log("guesses left " + chancesLeft);
-                // Update the hidden array on the console
-                $("#word").text(hidden); 
             }
         }
 
