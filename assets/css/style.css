@@ -1,10 +1,55 @@
-img {
+.navbar {
+    background-color: #78866b;
+}
+
+.navbar-brand{
+    color: black;
+}
+
+.duke {
     height: 100%;
     width: 100%;
     margin: auto;
 }
 
-.main {
-    /* padding-bottom: 100px; */
-    margin-bottom: 100px;
+body {
+    background-image: url(../images/OR4EJM0.jpg);
 }
+
+.jumbotron{
+    padding-top: 10px;
+    /* margin-bottom: 10px;  */
+    background-color: #78866b
+}
+
+.stats {
+    border-top: solid black 2px;
+    border-left: solid black 2px;
+    border-bottom: solid black 2px;
+}
+
+.loss{
+    border-right: solid black 2px;
+}
+
+.character {
+    margin: auto;
+}
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+    /* border-top: solid 2px black; */
+}
+
+.copy {
+    text-align: center;
+    color: black;
+    font-size: 10px;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    }

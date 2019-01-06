@@ -10,54 +10,65 @@
   </head>
 
 <body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/insignia.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            G.I. Joe Hangman
+        </a>
+    </nav>
     
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                    <img src="assets/images/joes-jumbo.jpg">
-                <h1 class="display-4">G.I Joe Hangman</h1>
+                    <img src="assets/images/joes-jumbo.jpg" class="duke">
+                <h1 class="display-4">G.I. Joe Hangman</h1>
                 <p class="lead">Guess a letter to begin.</p>
             </div>
-        </div>
-    
 
     <div class="container main" >
         <div class ="row">
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div><h2>Character: </h2></div>
-                <div id="word"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 character">
+                <div>
+                    <h2>Character: <span id="word"></span></h2>
+                </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3">
+            <div class="col-lg-3 col-md-3 col-sm-3 stats">
                 <div><h2>Letters Guessed: </h2>
                     <div id="number"></div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div><h2>Guesses Remaining: </h2>
-                    <div id="thoughts">8</div>
+            <div class="col-lg-3 col-md-3 col-sm-3 stats">
+                <div>
+                    <h2>Guesses Remaining: <span id="thoughts">8</span></h2>
                 </div>
             </div>
             
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div><h2>Wins: </h2>
-                    <div id="winCount">0</div>
+            <div class="col-lg-3 col-md-3 col-sm-3 stats">
+                <div>
+                    <h2>Wins: <span id="winCount">0</span></h2>
                 </div>
             </div>   
 
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <div><h2>Losses: </h2>
-                    <div id="losses">0</div>
+            <div class="col-lg-3 col-md-3 col-sm-3 stats loss">
+                <div>
+                    <h2>Losses: <span id="losses">0</span></h2>   
                 </div>
             </div>
         </div>
-            
+                
     </div>
+</div>
+</div>
 
-
+<div class="row footer">
+    <div class="col-md-12">
+        <p class="copy">Copyright &copy; Brendan Howell</p>
+    </div>
+</div>
     <script src="assets/javascript/game.js"></script>
 </body>
 </html>
