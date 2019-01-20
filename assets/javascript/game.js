@@ -1,5 +1,5 @@
 // Declaration of variables and arrays
-var joes = ["Duke", "Roadblock", "SnakeEyes", "StormShadow", "CobraCommander", "Destro", "LadyJaye", "SnowJob", "Scarlett", "RipCord", "Shipwreck", "Footloose", "Shockwave", "Firefly", "Flint", "DrMindbender",]
+var joes = ["Duke", "Roadblock", "SnakeEyes", "StormShadow", "LadyJaye", "SnowJob", "Scarlett", "RipCord", "Shipwreck", "Footloose", "Shockwave", "Firefly", "Flint"]
 
 var random; // Random number generated to select a word from the joes array
 var character; // The character selected form the array
@@ -15,7 +15,7 @@ var matches = 0; // amount of letters you have matched
 function getCharacter() {
     // Create a random number between 0 and 16 
     var min=0; 
-    var max=17;
+    var max=14;
     random = Math.floor(Math.random() * (+max - +min));
     console.log(random);
 
